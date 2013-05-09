@@ -1,4 +1,4 @@
-@import url(http://fonts.googleapis.com/css?family=Roboto+Slab);
+@import url(http://fonts.googleapis.com/css?family=Quando);
 
 h1 {
     /* Don't judge me */
@@ -8,5 +8,5 @@ h1 {
     height: 1em;
     text-align: center;
     margin-top: -0.5em;
-    font: normal 32px/1em 'Roboto Slab', serif;
+    font: normal 64px/1em 'Quando', serif;
 }
