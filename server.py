@@ -1,3 +1,5 @@
+import os
+
 from flask import Flask, render_template
 
 
@@ -10,4 +12,5 @@ def index():
 
 
 if __name__ == '__main__':
-    app.run()
+    debug = bool(os.environ.get('DEBUG', False))
+    app.run(debug=debug)
