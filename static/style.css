@@ -12,3 +12,11 @@ h1 {
     margin-top: -0.5em;
     font: normal 64px/1em 'Quando', serif;
 }
+
+video {
+  position: absolute;
+}
+
+.marking {
+  cursor: none;
+}
