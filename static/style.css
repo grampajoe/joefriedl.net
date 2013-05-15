@@ -1,5 +1,7 @@
 @import url(http://fonts.googleapis.com/css?family=Quando);
 
+* { border: 0; padding: 0; margin: 0; }
+
 h1 {
     /* Don't judge me */
     position: absolute;
