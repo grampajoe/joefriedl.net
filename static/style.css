@@ -11,12 +11,13 @@ a {
 }
 
 header {
-    /* Don't judge me */
-    position: absolute;
-    top: 50%;
-    width: 100%;
+    z-index: 2;
+    width: auto;
+    padding: 32px;
+    margin: 32px;
+    background: rgba(255, 255, 255, 0.5);
+    border-radius: 1em;
     text-align: center;
-    margin-top: -48px;
 }
 
 header h1 {
@@ -31,10 +32,33 @@ header a {
     position: absolute;
     top: 0;
     right: 0;
+    width: 80px;
     padding: 1em;
     text-align: center;
 }
 
-#user img {
+#logout {
+    color: rgba(0, 0, 0, 0.2);
+}
+
+#logout:hover {
+    color: #000;
+}
+
+#avatar {
     display:block;
+    z-index: 1;
+}
+
+#avatar.dragme:after {
+    display: block;
+    content: 'Drag me!';
+    background: rgba(0, 100, 0, 0.5);
+    color: #fff;
+    border-radius: 0 10px 10px 10px;
+    font-size: 12px;
+}
+
+.avatar {
+    border-radius: 100%;
 }

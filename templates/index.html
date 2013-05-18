@@ -9,10 +9,15 @@
   </header>
   {% if session.user %}
   <div id="user">
-    <a href="{{ session.user.html_url }}">
-      <img width="80" height="80" src="{{ session.user.avatar_url }}" alt="{{ session.user.name }}" />
+    <a id="logout" href="{{ url_for('logout') }}">Log Out</a>
+    <a id="avatar" class="dragme" href="{{ session.user.html_url }}" draggable>
+      <img class="avatar" width="80" height="80" src="{{ session.user.avatar_url }}" alt="{{ session.user.name }}" />
     </a>
-    <a href="{{ url_for('logout') }}">Log Out</a>
   </div>
+  <script type="text/javascript">
+  <!--
+  mark();
+  //-->
+  </script>
   {% endif %}
 {% endblock %}
