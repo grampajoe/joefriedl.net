@@ -2,21 +2,39 @@
 
 * { border: 0; padding: 0; margin: 0; }
 
-h1 {
+body {
+    font: normal 16px/1.5em 'Quando', serif;
+}
+
+a {
+    text-decoration: none;
+}
+
+header {
     /* Don't judge me */
     position: absolute;
     top: 50%;
     width: 100%;
-    height: 1em;
     text-align: center;
-    margin-top: -0.5em;
+    margin-top: -48px;
+}
+
+header h1 {
     font: normal 64px/1em 'Quando', serif;
 }
 
-video {
-  position: absolute;
+header a {
+    font: normal 32px/1em 'Quando', serif;
 }
 
-.marking {
-  cursor: none;
+#user {
+    position: absolute;
+    top: 0;
+    right: 0;
+    padding: 1em;
+    text-align: center;
+}
+
+#user img {
+    display:block;
 }
