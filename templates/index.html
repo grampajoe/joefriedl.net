@@ -3,5 +3,16 @@
   <script type="text/javascript" src="static/mark.js"></script>
 {% endblock %}
 {% block content %}
-  <h1>Joe Friedl</h1>
+  <header>
+    <h1>Joe Friedl</h1>
+    <a href="https://github.com/login/oauth/authorize?client_id={{ client_id }}">Make a Mark</a>
+  </header>
+  {% if session.user %}
+  <div id="user">
+    <a href="{{ session.user.html_url }}">
+      <img src="{{ session.user.avatar_url }}" alt="{{ session.user.name }}" />
+    </a>
+    <a href="{{ url_for('logout') }}">Log Out</a>
+  </div>
+  {% endif %}
 {% endblock %}
