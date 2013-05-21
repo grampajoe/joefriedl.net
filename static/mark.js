@@ -13,6 +13,8 @@ function mark() {
     guy.style.position = 'absolute';
     guy.style.left = (e.x - dragX) + 'px';
     guy.style.top = (e.y - dragY) + 'px';
+
+    $.post('marks/', {'x': guy.style.left, 'y': guy.style.top});
   });
 
   window.addEventListener('dragover', function(e) {

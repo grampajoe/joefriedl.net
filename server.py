@@ -16,6 +16,14 @@ def index():
     return render_template('index.html', client_id=CLIENT_ID)
 
 
+@app.route('/marks/', methods=['POST'])
+def marks():
+    if request.method == 'POST':
+        store_mark(request.form['x'], request.form['y'], session['user'])
+
+        return redirect(url_for('index'))
+
+
 @app.route('/logout')
 def logout():
     """Log a user out."""
@@ -34,6 +42,11 @@ def auth_github():
         session['user'] = get_github_user_info(access_token)
 
     return redirect(url_for('index'))
+
+
+def store_mark(x, y, user):
+    """Store the location of a mark, along with the user."""
+    print user['name'], 'made a mark at', x, ',', y
 
 
 def get_github_access_token(code):
