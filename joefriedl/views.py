@@ -1,23 +1,14 @@
 import os
-
 import requests
-from flask import Flask, render_template, request, redirect, url_for, session
-from flask.ext.sqlalchemy import SQLAlchemy
 
+from flask import render_template, url_for, session, request, redirect
 
-CLIENT_ID = os.environ['GH_CLIENT_ID']
-CLIENT_SECRET = os.environ['GH_CLIENT_SECRET']
-
-app = Flask(__name__)
-app.secret_key = CLIENT_SECRET
-
-app.config['SQLALCHEMY_DATABASE_URI'] = os.environ['DATABASE_URL']
-db = SQLAlchemy(app)
+from joefriedl import app
 
 
 @app.route('/')
 def index():
-    return render_template('index.html', client_id=CLIENT_ID)
+    return render_template('index.html', client_id=app.config['GH_CLIENT_ID'])
 
 
 @app.route('/marks/', methods=['POST'])
@@ -58,8 +49,8 @@ def get_github_access_token(code):
     response = requests.post(
         'https://github.com/login/oauth/access_token',
         data={
-            'client_id': CLIENT_ID,
-            'client_secret': CLIENT_SECRET,
+            'client_id': app.config['GH_CLIENT_ID'],
+            'client_secret': app.config['GH_CLIENT_SECRET'],
             'code': code,
         },
         headers={
@@ -85,8 +76,3 @@ def get_github_user_info(access_token):
 
     data = response.json()
     return data
-
-
-if __name__ == '__main__':
-    debug = bool(os.environ.get('DEBUG', False))
-    app.run(debug=debug)
