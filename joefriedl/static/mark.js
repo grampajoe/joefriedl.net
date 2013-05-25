@@ -14,7 +14,10 @@ function mark() {
     guy.style.left = (e.x - dragX) + 'px';
     guy.style.top = (e.y - dragY) + 'px';
 
-    $.post('marks/', {'x': guy.style.left, 'y': guy.style.top});
+    $.post('marks/', {
+      'x': parseFloat(guy.style.left),
+      'y': parseFloat(guy.style.top),
+    });
   });
 
   window.addEventListener('dragover', function(e) {

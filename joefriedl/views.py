@@ -3,12 +3,15 @@ import requests
 
 from flask import render_template, url_for, session, request, redirect
 
-from joefriedl import app
+from joefriedl import app, db
+from joefriedl.models import Mark
 
 
 @app.route('/')
 def index():
-    return render_template('index.html', client_id=app.config['GH_CLIENT_ID'])
+    marks = Mark.query.all()
+    return render_template(
+        'index.html', marks=marks, client_id=app.config['GH_CLIENT_ID'])
 
 
 @app.route('/marks/', methods=['POST'])
@@ -41,6 +44,20 @@ def auth_github():
 
 def store_mark(x, y, user):
     """Store the location of a mark, along with the user."""
+    mark = Mark.query.get((user['id']))
+
+    if mark is None:
+        mark = Mark(user_id=user['id'])
+
+    mark.gravatar_id = user['gravatar_id']
+    mark.name = user['name']
+    mark.login = user['login']
+    mark.x = x
+    mark.y = y
+
+    db.session.add(mark)
+    db.session.commit()
+
     print user['name'], 'made a mark at', x, ',', y
 
 
