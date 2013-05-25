@@ -62,3 +62,8 @@ header a {
 .avatar {
     border-radius: 100%;
 }
+
+#marks > a {
+    position: absolute;
+    display: block;
+}

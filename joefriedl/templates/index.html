@@ -14,6 +14,13 @@
       <img class="avatar" width="80" height="80" src="{{ session.user.avatar_url }}" alt="{{ session.user.name }}" />
     </a>
   </div>
+  <div id="marks">
+    {% for mark in marks %}
+    <a href="{{ mark.url }}" style="top:{{ mark.y }}px; left:{{ mark.x }}px">
+        <img class="avatar" width="80" height="80" src="{{ mark.gravatar_url }}" alt="{{ mark.name }}" />
+    </a>
+    {% endfor %}
+  </div>
   <script type="text/javascript">
   <!--
   mark();
