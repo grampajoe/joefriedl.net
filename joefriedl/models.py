@@ -14,3 +14,8 @@ class Mark(db.Model):
     def gravatar_url(self):
         """Return the gravatar URL for a mark."""
         return 'https://secure.gravatar.com/avatar/%s' % self.gravatar_id
+
+    @property
+    def url(self):
+        """Return the user's URL."""
+        return 'https://github.com/%s' % self.login
