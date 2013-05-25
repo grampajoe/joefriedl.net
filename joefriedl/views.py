@@ -1,10 +1,17 @@
 import os
 import requests
+import logging
 
 from flask import render_template, url_for, session, request, redirect
 
 from joefriedl import app, db
 from joefriedl.models import Mark
+
+
+# Set up some basic logging for now
+logger = logging.getLogger(__name__)
+logger.setLevel(logging.DEBUG)
+logger.addHandler(logging.StreamHandler())
 
 
 @app.route('/')
@@ -58,7 +65,9 @@ def store_mark(x, y, user):
     db.session.add(mark)
     db.session.commit()
 
-    print user['name'], 'made a mark at', x, ',', y
+    logger.info(
+        '{name} made a mark at {x}, {y}'.format(name=user['name'], x=x, y=y)
+    )
 
 
 def get_github_access_token(code):
