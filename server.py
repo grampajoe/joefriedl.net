@@ -2,6 +2,7 @@ import os
 
 import requests
 from flask import Flask, render_template, request, redirect, url_for, session
+from flask.ext.sqlalchemy import SQLAlchemy
 
 
 CLIENT_ID = os.environ['GH_CLIENT_ID']
@@ -9,6 +10,9 @@ CLIENT_SECRET = os.environ['GH_CLIENT_SECRET']
 
 app = Flask(__name__)
 app.secret_key = CLIENT_SECRET
+
+app.config['SQLALCHEMY_DATABASE_URI'] = os.environ['DATABASE_URL']
+db = SQLAlchemy(app)
 
 
 @app.route('/')
