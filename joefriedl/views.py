@@ -17,8 +17,13 @@ logger.addHandler(logging.StreamHandler())
 @app.route('/')
 def index():
     marks = Mark.query.all()
+    if 'user' in session:
+        user_mark = Mark.query.get((session['user']['id']))
+    else:
+        user_mark = None
     return render_template(
-        'index.html', marks=marks, client_id=app.config['GH_CLIENT_ID'])
+        'index.html', marks=marks, client_id=app.config['GH_CLIENT_ID'],
+        user_mark=user_mark)
 
 
 @app.route('/marks/', methods=['POST'])

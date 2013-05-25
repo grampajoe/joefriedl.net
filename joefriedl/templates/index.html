@@ -10,17 +10,21 @@
   {% if session.user %}
   <div id="user">
     <a id="logout" href="{{ url_for('logout') }}">Log Out</a>
+    {% if not user_mark %}
     <a id="avatar" class="dragme" href="{{ session.user.html_url }}" draggable>
       <img class="avatar" width="80" height="80" src="{{ session.user.avatar_url }}" alt="{{ session.user.name }}" />
     </a>
+    {% endif %}
   </div>
+  {% endif %}
   <div id="marks">
     {% for mark in marks %}
-    <a href="{{ mark.url }}" style="top:{{ mark.y }}px; left:{{ mark.x }}px">
+    <a {% if mark == user_mark %}id="avatar" draggable {% endif %}href="{{ mark.url }}" style="top:{{ mark.y }}px; left:{{ mark.x }}px">
         <img class="avatar" width="80" height="80" src="{{ mark.gravatar_url }}" alt="{{ mark.name }}" />
     </a>
     {% endfor %}
   </div>
+  {% if session.user %}
   <script type="text/javascript">
   <!--
   mark();
