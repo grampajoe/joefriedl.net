@@ -12,9 +12,9 @@ a {
 
 header {
     z-index: 10;
-    width: auto;
+    width: 400px;
     padding: 32px;
-    margin: 32px;
+    margin: 32px auto;
     background: rgba(255, 255, 255, 0.5);
     border-radius: 1em;
     text-align: center;
@@ -60,6 +60,13 @@ header a {
 
 .avatar {
     border-radius: 100%;
+}
+
+#marks {
+    position: absolute;
+    top: 0;
+    left: 50%;
+    width: 0;
 }
 
 #marks > a {

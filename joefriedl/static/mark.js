@@ -21,12 +21,14 @@ function mark() {
       return;
     }
 
+    var pos = marks.position();
+
     marks.append(guy);
     guy.removeClass('dragme');
     guy.css({
       'position': 'absolute',
-      'left': (e.x - dragX) + 'px',
-      'top': (e.y - dragY) + 'px',
+      'left': (e.x - pos.left - dragX) + 'px',
+      'top': (e.y - pos.top - dragY) + 'px',
     });
 
     $.post('marks/', {
