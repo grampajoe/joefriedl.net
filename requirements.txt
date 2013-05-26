@@ -4,5 +4,6 @@ Jinja2==2.6
 SQLAlchemy==0.8.1
 Werkzeug==0.8.3
 gunicorn==0.17.4
+psycopg2==2.5
 requests==1.2.0
 wsgiref==0.1.2
