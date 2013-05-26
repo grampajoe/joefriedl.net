@@ -1,0 +1,39 @@
+{% extends "layout.html" %}
+{% block head_extra %}
+  <script type="text/javascript" src="static/mark.js"></script>
+{% endblock %}
+{% block content %}
+  <header>
+    <h1>Joe Friedl</h1>
+    <a href="https://github.com/login/oauth/authorize?client_id={{ client_id }}">Make a Mark</a>
+  </header>
+  {% if session.user %}
+  <div id="user">
+    <p>{{ session.user.name }}</p>
+    <a id="logout" href="{{ url_for('logout') }}">Log Out</a>
+    {% if not user_mark %}
+    <div id="avatar" class="dragme" draggable>
+      <a href="{{ session.user.html_url }}">
+        <img class="avatar" width="80" height="80" src="{{ session.user.avatar_url }}" alt="{{ session.user.name }}" />
+      </a>
+    </div>
+    {% endif %}
+  </div>
+  {% endif %}
+  <div id="marks">
+    {% for mark in marks %}
+    <div {% if mark == user_mark %}id="avatar" draggable {% endif %} style="top:{{ mark.y }}px; left:{{ mark.x }}px">
+      <a href="{{ mark.url }}">
+        <img class="avatar" width="80" height="80" src="{{ mark.gravatar_url }}" alt="{{ mark.name }}" />
+      </a>
+    </div>
+    {% endfor %}
+  </div>
+  {% if session.user %}
+  <script type="text/javascript">
+  <!--
+  mark();
+  //-->
+  </script>
+  {% endif %}
+{% endblock %}
