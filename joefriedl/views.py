@@ -31,7 +31,7 @@ def marks():
     if request.method == 'POST':
         store_mark(request.form['x'], request.form['y'], session['user'])
 
-        return redirect(url_for('index'))
+        return ('Mark saved.', 200)
 
 
 @app.route('/logout')
