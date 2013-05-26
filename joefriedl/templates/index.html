@@ -9,6 +9,7 @@
   </header>
   {% if session.user %}
   <div id="user">
+    <p>{{ session.user.name }}</p>
     <a id="logout" href="{{ url_for('logout') }}">Log Out</a>
     {% if not user_mark %}
     <div id="avatar" class="dragme" draggable>

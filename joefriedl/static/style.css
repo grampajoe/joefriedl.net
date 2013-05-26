@@ -13,7 +13,7 @@ a {
 header {
     z-index: 10;
     width: 400px;
-    padding: 32px;
+    padding: 4px;
     margin: 32px auto;
     background: rgba(255, 255, 255, 0.5);
     border-radius: 1em;
@@ -22,6 +22,7 @@ header {
 
 header h1 {
     font: normal 64px/1em 'Quando', serif;
+    width: auto;
 }
 
 header a {
@@ -32,9 +33,9 @@ header a {
     position: absolute;
     top: 0;
     right: 0;
-    width: 80px;
+    width: auto;
     padding: 1em;
-    text-align: center;
+    text-align: right;
 }
 
 #logout {
@@ -47,6 +48,8 @@ header a {
 
 #avatar, #marks > #avatar {
     z-index: 100;
+    width: 80px;
+    float: right;
 }
 
 #avatar.dragme:after {
@@ -56,6 +59,7 @@ header a {
     color: #fff;
     border-radius: 0 10px 10px 10px;
     font-size: 12px;
+    text-align: center;
 }
 
 .avatar {
