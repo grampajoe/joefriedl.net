@@ -11,7 +11,7 @@ a {
 }
 
 header {
-    z-index: 2;
+    z-index: 10;
     width: auto;
     padding: 32px;
     margin: 32px;
@@ -45,9 +45,8 @@ header a {
     color: #000;
 }
 
-#avatar {
-    display:block;
-    z-index: 1;
+#avatar, #marks > #avatar {
+    z-index: 100;
 }
 
 #avatar.dragme:after {
@@ -66,4 +65,5 @@ header a {
 #marks > a {
     position: absolute;
     display: block;
+    z-index: -10;
 }
