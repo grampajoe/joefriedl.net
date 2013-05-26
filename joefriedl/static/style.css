@@ -69,7 +69,7 @@ header a {
     width: 0;
 }
 
-#marks > a {
+#marks > div {
     position: absolute;
     display: block;
     z-index: -10;
