@@ -10,7 +10,8 @@
   {% if session.user %}
   <div id="user">
     <p>{{ session.user.name }}</p>
-    <a id="logout" href="{{ url_for('logout') }}">Log Out</a>
+    <p><a id="logout" href="{{ url_for('logout') }}">Log Out</a></p>
+    <p><a id="remove" href="#">Remove Me</a></p>
     {% if not user_mark %}
     <div id="avatar" class="dragme" draggable>
       <a href="{{ session.user.html_url }}">

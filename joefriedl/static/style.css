@@ -38,11 +38,11 @@ header a {
     text-align: right;
 }
 
-#logout {
+#user a {
     color: rgba(0, 0, 0, 0.2);
 }
 
-#logout:hover {
+#user a:hover {
     color: #000;
 }
 
