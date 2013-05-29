@@ -18,7 +18,7 @@ logger.addHandler(logging.StreamHandler())
 def index():
     marks = Mark.query.all()
     if 'user' in session:
-        user_mark = Mark.query.get((session['user']['id']))
+        user_mark = Mark.query.get(session['user']['id'])
     else:
         user_mark = None
     return render_template(
@@ -32,6 +32,17 @@ def marks():
         store_mark(request.form['x'], request.form['y'], session['user'])
 
         return ('Mark saved.', 200)
+
+
+@app.route('/marks/<int:user_id>/', methods=['DELETE'])
+def mark(user_id):
+    mark = Mark.query.get_or_404(user_id)
+
+    if request.method == 'DELETE':
+        db.session.delete(mark)
+        db.session.commit()
+
+        return ('Mark deleted.', 200)
 
 
 @app.route('/logout')
