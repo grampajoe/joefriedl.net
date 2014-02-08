@@ -1,11 +1,13 @@
 {% extends "layout.html" %}
 {% block head_extra %}
+  {#
   <script type="text/javascript" src="static/mark.js"></script>
+  #}
 {% endblock %}
 {% block content %}
   <header>
     <h1>Joe Friedl</h1>
-    <a href="https://github.com/login/oauth/authorize?client_id={{ client_id }}">Make a Mark</a>
+    {# <a href="https://github.com/login/oauth/authorize?client_id={{ client_id }}">Make a Mark</a> #}
   </header>
   {% if session.user %}
   <div id="user">
@@ -21,6 +23,7 @@
     {% endif %}
   </div>
   {% endif %}
+  {# 
   <div id="marks">
     {% for mark in marks %}
     <div {% if mark == user_mark %}id="avatar" draggable {% endif %} style="top:{{ mark.y }}px; left:{{ mark.x }}px">
@@ -30,6 +33,7 @@
     </div>
     {% endfor %}
   </div>
+  #} 
   {% if session.user %}
   <script type="text/javascript">
   <!--
