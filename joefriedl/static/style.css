@@ -30,8 +30,24 @@ header h1 {
 }
 
 #linkz a {
+    font-size: 0;
+    text-decoration: none;
+}
+
+#linkz a:before {
     font-family: "Mono Social Icons Font";
     text-rendering: optimizeLegibility;
     font-size: 50px;
-    text-decoration: none;
+}
+
+.github a:before {
+    content: 'circlegithubalt';
+}
+
+.twitter a:before {
+    content: 'circletwitterbird';
+}
+
+.youtube a:before {
+    content: 'circleyoutube';
 }
