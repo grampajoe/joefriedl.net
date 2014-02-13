@@ -1,28 +1,25 @@
 <!DOCTYPE HTML>
 <html lang="en">
 <head>
-  <title>Joe Friedl</title>
-  <meta name="description" content="Joe Friedl is a web developer and wizard in Queens, NY." />
-  <meta name="keywords" content="joe friedl,joe,friedl,web developer,web development,python,programming,javascript,wizard,wizardry,dragons,skeletons,magic,a bread" />
-  <link rel="openid.server" href="http://www.myopenid.com/server" />
-  <link rel="openid.delegate" href="http://grampajoe.myopenid.com/" />
-  <link rel="shortcut icon" type="image/png" href="static/face_icon.png" />
-  <link rel="stylesheet" type="text/css" href="static/style.css" />
-  <script type="text/javascript" src="http://code.jquery.com/jquery-2.0.0.min.js"></script>
-  {% block head_extra %}{% endblock %}
+    <title>Joe Friedl</title>
+    <meta name="description" content="Joe Friedl is a web developer and wizard in Queens, NY." />
+    <meta name="keywords" content="joe friedl,joe,friedl,web developer,web development,python,programming,javascript,wizard,wizardry,dragons,skeletons,magic,a bread" />
+    <link rel="openid.server" href="http://www.myopenid.com/server" />
+    <link rel="openid.delegate" href="http://grampajoe.myopenid.com/" />
+    <link rel="shortcut icon" type="image/png" href="static/face_icon.png" />
+    <link rel="stylesheet" type="text/css" href="static/style.css" />
 </head>
 <body>
-  {% block content %}{% endblock %}
-  <script type="text/javascript">
-    var _gaq = _gaq || [];
-    _gaq.push(['_setAccount', 'UA-3086143-4']);
-    _gaq.push(['_trackPageview']);
+    {% block content %}{% endblock %}
+    <script>
+      (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+      (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+      m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+      })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
 
-    (function() {
-      var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
-      ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
-      var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
-    })();
-  </script>
+      ga('create', 'UA-3086143-4', 'joefriedl.net');
+      ga('send', 'pageview');
+
+    </script>
 </body>
 </html>
